@@ -1,12 +1,12 @@
 import react from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Add from "./Screens/Add";
-import Home from "./Screens/Home";
-import Leaderboard from "./Screens/Leaderboard";
-import Login from "./Screens/Login";
-import QuestionDetails from "./Screens/QuestionDetails";
-import User from "./Screens/User";
-import NotFound from "./Screens/NotFound";
+import Add from "../Screens/Add";
+import Home from "../Screens/Home";
+import Leaderboard from "../Screens/Leaderboard";
+import Login from "../Screens/Login";
+import QuestionDetails from "../Screens/QuestionDetails";
+import User from "../Screens/User";
+import NotFound from "../Screens/NotFound";
 
 function App() {
   return (
