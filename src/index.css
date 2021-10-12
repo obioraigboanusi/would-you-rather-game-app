@@ -1,7 +1,39 @@
-.mt-5{
-margin-top: 5px !important;
+.mt-5 {
+  /* margin-top: 5px !important; */
 }
-.fw-b{
-    font-weight: bold !important;
-    color: black !important;
+.fw-b {
+  font-weight: bold !important;
+  color: black !important;
+}
+.questions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.questions > div {
+  width: 70%;
+  min-width: 300px;
+  max-width: 500px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  max-width: 300px;
+  margin: auto;
+}
+.login h2 {
+  margin-bottom: 50px;
+  text-align: center !important;
+}
+form {
+  display: block;
+  width: 100%;
+}
+.login .btn {
+  margin: 20px auto;
 }

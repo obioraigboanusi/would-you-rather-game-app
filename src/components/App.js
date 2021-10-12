@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Add from "../Screens/Add";
 import Home from "../Screens/Home";
@@ -7,8 +7,13 @@ import Login from "../Screens/Login";
 import QuestionDetails from "../Screens/QuestionDetails";
 import User from "../Screens/User";
 import NotFound from "../Screens/NotFound";
+import { connect } from "react-redux";
+import { handleInitialData } from "../actions/shared";
 
-function App() {
+function App({ dispatch,  }) {
+  useEffect(() => {
+    dispatch(handleInitialData());
+  }, []);
   return (
     <BrowserRouter>
       <Switch>
@@ -23,5 +28,9 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
+function mapStateToProps({ authedUser }) {
+  return {
+    loading: authedUser === null,
+  };
+}
+export default connect(mapStateToProps)(App);
