@@ -20,14 +20,15 @@ function QuestionDetails({ questions, user, dispatch }) {
     e.preventDefault();
     setChosenOption(e.target.textContent);
   };
-  const handleSubmit = () => {
-    dispatch(
+  const handleSubmit = async ()  => {
+   await dispatch(
       handleAnswerQuestion({
         qid: id,
         authedUser: user.id,
         answer: chosenOption === optionOne ? "optionOne" : "optionTwo",
       })
-    );
+    )
+    history.push("/");
   };
 
   return (

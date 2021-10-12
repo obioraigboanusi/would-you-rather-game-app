@@ -10,10 +10,10 @@ export function receiveQuestions(questions) {
     questions,
   };
 }
-export function setAnsweredQuestions(id) {
+export function setAnsweredQuestions(uid) {
   return {
     type: SET_ANSWERED_QUESTIONS,
-    id,
+    uid,
   };
 }
 

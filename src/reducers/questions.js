@@ -17,8 +17,8 @@ export function questions(state = {}, action) {
         obj[item] = {
           ...state[item],
           isAnswered:
-            state[item].optionOne.votes.includes(action.qid) ||
-            state[item].optionTwo.votes.includes(action.qid),
+            state[item].optionOne.votes.includes(action.uid) ||
+            state[item].optionTwo.votes.includes(action.uid),
         };
       });
 
@@ -42,6 +42,11 @@ export function questions(state = {}, action) {
                   action.authedUser,
                 ]),
           },
+          isAnswered: state[action.qid][action.answer].votes.includes(
+            action.authedUser
+          )
+            ? false
+            : true,
         },
       };
 

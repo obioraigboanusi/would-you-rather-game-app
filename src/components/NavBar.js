@@ -20,7 +20,7 @@ function NavBar() {
     <Menu
     
       // fixed={fixed ? "top" : null}
-      inverted={!fixed}
+      inverted
       pointing={!fixed}
       secondary={!fixed}
       size="large"
