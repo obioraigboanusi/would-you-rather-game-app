@@ -1,4 +1,5 @@
-import {useState} from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Container,
@@ -15,10 +16,9 @@ import {
 } from "semantic-ui-react";
 
 function NavBar() {
-    const [fixed, setfixed] = useState(true)
+  const [fixed, setfixed] = useState(true);
   return (
     <Menu
-    
       // fixed={fixed ? "top" : null}
       inverted
       pointing={!fixed}
@@ -26,7 +26,7 @@ function NavBar() {
       size="large"
     >
       <Container>
-        <Menu.Item as="a" active>
+        {/* <Menu.Item as="a" active>
           Home
         </Menu.Item>
         <Menu.Item as="a" active>Work</Menu.Item>
@@ -46,7 +46,13 @@ function NavBar() {
           >
             Sign Up
           </Button>
-        </Menu.Item>
+        </Menu.Item> */}
+        <div className="nav">
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/add">Add</Link>
+          <Link to="/">LeaderShip board</Link>
+        </div>
       </Container>
     </Menu>
   );
