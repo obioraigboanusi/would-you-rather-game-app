@@ -1,8 +1,9 @@
-import { _saveQuestionAnswer } from "../_DATA";
+import { _saveQuestion, _saveQuestionAnswer } from "../_DATA";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const SET_ANSWERED_QUESTIONS = "SET_ANSWERED_QUESTIONS";
 export const ANSWER_QUESTIONS = "ANSWER_QUESTIONS";
+export const ADD_QUESTION = "ADD_QUESTION";
 
 export function receiveQuestions(questions) {
   return {
@@ -34,5 +35,26 @@ export function handleAnswerQuestion(info) {
       dispatch(answerQuestion(info));
       alert("There was an error submitting the poll, Please try again");
     });
+  };
+}
+export function addQuestion(question) {
+  return {
+    type: ADD_QUESTION,
+    question,
+  };
+}
+
+export function handleAddQuestion(question) {
+
+  return (dispatch) => {
+    return _saveQuestion(question)
+      .then((res) => {
+        console.log("res", res);
+        dispatch(addQuestion(res));
+      })
+      .catch((e) => {
+        console.warn("Error in creating poll...", e);
+        alert("There was an error creating the poll, Please try again");
+      });
   };
 }

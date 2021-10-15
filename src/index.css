@@ -1,5 +1,5 @@
-.mt-5 {
-  /* margin-top: 5px !important; */
+.mb-10 {
+  margin-bottom: 10px;
 }
 .fw-b {
   font-weight: bold !important;
@@ -36,4 +36,65 @@ form {
 }
 .login .btn {
   margin: 20px auto;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+.nav > a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+}
+.nav > a:hover {
+  opacity: .8;
+}
+.card {
+  max-width: 500px;
+  border: 1px solid lightgray;
+}
+.card img {
+  width: 100%;
+  border-radius: 50%;
+}
+.card h2 {
+  padding: 10px 15px;
+  border-bottom: 1px solid lightgray;
+}
+.seg {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 15px;
+  grid-gap: 15px;
+  align-items: center;
+}
+.inner {
+  /* border-left: 1px solid lightgray; */
+  /* padding-left: 10px !important; */
+  display: grid;
+  grid-gap: 10px;
+}
+.inner > div {
+  border: 1px solid rgb(255, 0, 0);
+  background-color: rgba(255, 0, 0, 0.048);
+  padding: 10px;
+  position: relative;
+  border-radius: 3px;
+}
+
+.inner > div.winning-card {
+  background-color: rgba(1, 180, 1, 0.048);
+  border: 1px solid #21ba45;
+}
+.container {
+  width: 92%;
+  max-width: 500px;
+  margin: auto;
 }

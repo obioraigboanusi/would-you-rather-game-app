@@ -1,4 +1,5 @@
 import {
+  ADD_QUESTION,
   ANSWER_QUESTIONS,
   RECEIVE_QUESTIONS,
   SET_ANSWERED_QUESTIONS,
@@ -48,6 +49,12 @@ export function questions(state = {}, action) {
             ? false
             : true,
         },
+      };
+    case ADD_QUESTION:
+      return {
+        ...state,
+        [action.question.id]: action.question,
+        
       };
 
     default:

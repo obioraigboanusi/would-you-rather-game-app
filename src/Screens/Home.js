@@ -4,8 +4,12 @@ import { Container, Label, Menu } from "semantic-ui-react";
 import NavBar from "../components/NavBar";
 import Question from "../components/Question";
 import { Tab } from "semantic-ui-react";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import { Redirect, useHistory } from "react-router";
 
-function Home({ questions }) {
+function Home({ questions, authedUser }) {
+  const history = useHistory();
+
   const answered = questions?.filter((item) => item.isAnswered);
   const unanswered = questions?.filter((item) => !item.isAnswered);
 
@@ -53,7 +57,18 @@ function Home({ questions }) {
       },
     },
   ];
-
+  if (authedUser === null || undefined || "") {
+    return (
+      <Redirect
+        to={{
+          pathname: "/login",
+          state: {
+            from: history.location.pathname,
+          },
+        }}
+      />
+    );
+  }
   return (
     <div>
       <NavBar />
@@ -63,10 +78,10 @@ function Home({ questions }) {
     </div>
   );
 }
-function mapStateToProps({ questions }) {
-  // console.log(questions);
+function mapStateToProps({ questions, authedUser }) {
   return {
     questions: Object.values(questions),
+    authedUser,
   };
 }
 export default connect(mapStateToProps)(Home);

@@ -10,6 +10,7 @@ import NavBar from "../components/NavBar";
 function Login({ users, dispatch }) {
   const history = useHistory();
   const [user, setUser] = useState("");
+  const [error, setError] = useState("");
   const userOptions = Object.values(users).map((item) => {
     const { id, avatarURL, name } = item;
     return {
@@ -22,13 +23,29 @@ function Login({ users, dispatch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const knownUser = Object.values(users).filter((a) => a.name === user);
-    batch(() => {
-      dispatch(setAuthedUser(knownUser[0].id));
-      dispatch(setAnsweredQuestions(knownUser[0].id));
-    });
-    history.push("/");
+    if (!!user) {
+      const knownUser = Object.values(users).filter((a) => a.name === user);
+      batch(() => {
+        dispatch(setAuthedUser(knownUser[0].id));
+        dispatch(setAnsweredQuestions(knownUser[0].id));
+      });
+      if (!!history.location.state) {
+        if (history.location.state.from === null || undefined || "") {
+          history.push("/");
+        } else {
+          history.push(`${history.location.state.from}`);
+        }
+      } else {
+        history.push("/");
+      }
+    } else {
+      setError("You must select a user to proceed!");
+      setTimeout(() => {
+        setError("");
+      }, 3000);
+    }
   };
+
   return (
     <>
       <NavBar />
@@ -36,6 +53,7 @@ function Login({ users, dispatch }) {
         <div className="login">
           <h1>Login to continue</h1>
           <form onSubmit={handleSubmit}>
+            {!!error && <p style={{ color: "red" }}>{error}</p>}
             <Dropdown
               placeholder="Select user"
               fluid
@@ -53,9 +71,10 @@ function Login({ users, dispatch }) {
     </>
   );
 }
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
     users,
+    authedUser,
   };
 }
 export default connect(mapStateToProps)(Login);
