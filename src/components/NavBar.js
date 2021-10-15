@@ -17,7 +17,7 @@ function NavBar() {
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
           <Link to="/add">Add</Link>
-          <Link to="/">LeaderShip board</Link>
+          <Link to="/leaderboard">LeaderBoard</Link>
         </div>
       </div>
     </Menu>

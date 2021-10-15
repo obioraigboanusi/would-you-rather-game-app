@@ -27,34 +27,10 @@ export function answerQuestion({ qid, authedUser, answer }) {
   };
 }
 
-export function handleAnswerQuestion(info) {
-  return (dispatch) => {
-    dispatch(answerQuestion(info));
-    return _saveQuestionAnswer(info).catch((e) => {
-      console.warn("Error in submitting poll...", e);
-      dispatch(answerQuestion(info));
-      alert("There was an error submitting the poll, Please try again");
-    });
-  };
-}
+
 export function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question,
-  };
-}
-
-export function handleAddQuestion(question) {
-
-  return (dispatch) => {
-    return _saveQuestion(question)
-      .then((res) => {
-        console.log("res", res);
-        dispatch(addQuestion(res));
-      })
-      .catch((e) => {
-        console.warn("Error in creating poll...", e);
-        alert("There was an error creating the poll, Please try again");
-      });
   };
 }

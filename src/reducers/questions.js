@@ -15,7 +15,7 @@ export function questions(state = {}, action) {
     case SET_ANSWERED_QUESTIONS:
       let obj = {};
       Object.keys(state).map((item) => {
-        obj[item] = {
+      return  obj[item] = {
           ...state[item],
           isAnswered:
             state[item].optionOne.votes.includes(action.uid) ||
@@ -53,8 +53,7 @@ export function questions(state = {}, action) {
     case ADD_QUESTION:
       return {
         ...state,
-        [action.question.id]: action.question,
-        
+        [action.question.id]: action.question,  
       };
 
     default:

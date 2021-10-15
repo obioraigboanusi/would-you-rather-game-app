@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Redirect, useHistory } from "react-router";
 import { Button, Divider, Form, Segment } from "semantic-ui-react";
-import { handleAddQuestion } from "../actions/questions";
+import { handleAddQuestion } from "../actions/shared";
 import NavBar from "../components/NavBar";
 
 function Add({ dispatch, authedUser }) {
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
-
+  const [errorMessages] = useState({
+    optionOne: "Please enter the first option",
+    optionTwo: "Please enter the second option",
+  });
+  const [error, setError] = useState({
+    optionOne: "",
+    optionTwo: "",
+  });
   const history = useHistory();
 
   if (authedUser === null || undefined || "") {
@@ -27,6 +34,7 @@ function Add({ dispatch, authedUser }) {
     e.preventDefault();
 
     if (optionOne && optionTwo) {
+      // add question to store and db
       dispatch(
         handleAddQuestion({
           optionTwoText: optionTwo,
@@ -34,12 +42,44 @@ function Add({ dispatch, authedUser }) {
           author: authedUser,
         })
       );
+      // clear input fields
+      setOptionOne("");
+      setOptionTwo("");
+
+      // navigate to home page
+      history.push("/");
+    } else {
+      // show error message
+      handleError(optionOne, optionTwo);
+
+      //clear error messages after three seconds
+      setTimeout(() => {
+        setError({
+          optionOne: "",
+          optionTwo: "",
+        });
+      }, 3000);
     }
-    console.log({
-      optionTwoText: optionTwo,
-      optionOneText: optionOne,
-      author: authedUser,
-    });
+  };
+  const handleError = (optionOne, optionTwo) => {
+    if (optionOne === "" && optionTwo === "") {
+      setError({
+        optionOne: errorMessages.optionOne,
+        optionTwo: errorMessages.optionTwo,
+      });
+    }
+    if (optionOne === "" && optionTwo !== "") {
+      setError({
+        optionOne: errorMessages.optionOne,
+        optionTwo: "",
+      });
+    }
+    if (optionOne !== "" && optionTwo === "") {
+      setError({
+        optionOne: "",
+        optionTwo: errorMessages.optionTwo,
+      });
+    }
   };
 
   return (
@@ -51,6 +91,11 @@ function Add({ dispatch, authedUser }) {
           <h2>Would you rather....</h2>
           <Segment basic textAlign="center">
             <Form.Field>
+              {!!error.optionOne && (
+                <p style={{ color: "red", textAlign: "left" }}>
+                  {error.optionOne}
+                </p>
+              )}
               <input
                 placeholder="Enter option one"
                 value={optionOne}
@@ -59,6 +104,11 @@ function Add({ dispatch, authedUser }) {
             </Form.Field>
             <Divider horizontal>Or</Divider>
             <Form.Field>
+              {!!error.optionTwo && (
+                <p style={{ color: "red", textAlign: "left" }}>
+                  {error.optionTwo}
+                </p>
+              )}
               <input
                 placeholder="Enter option two"
                 value={optionTwo}

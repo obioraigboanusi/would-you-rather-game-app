@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
-import { Button, Card, Divider, Feed, Grid, Image } from "semantic-ui-react";
+import { Button, Card, Image } from "semantic-ui-react";
 
 function Question({ question, user }) {
   const history = useHistory();
