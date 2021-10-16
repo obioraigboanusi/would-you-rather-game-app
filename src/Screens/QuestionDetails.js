@@ -29,7 +29,7 @@ function QuestionDetails({ questions, authedUser }) {
   return (
     <>
       <NavBar />
-      <div className="container">
+      <div className="container" >
         {!isAnswered ? (
           <UnAnsweredQuestionCard question={question} />
         ) : (

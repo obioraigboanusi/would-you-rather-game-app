@@ -19,50 +19,65 @@ function UnAnsweredQuestionCard({ question, user, dispatch }) {
   };
 
   const handleSubmit = async () => {
-    await dispatch(
-      handleAnswerQuestion({
-        qid: id,
-        authedUser: user.id,
-        answer: chosenOption === optionOne ? "optionOne" : "optionTwo",
-      })
-    );
-    history.push("/");
+    if (!!chosenOption) {
+      await dispatch(
+        handleAnswerQuestion({
+          qid: id,
+          authedUser: user.id,
+          answer: chosenOption === optionOne ? "optionOne" : "optionTwo",
+        })
+      );
+      history.push("/");
+    }else{
+      alert("Please select atleast one option")
+    }
   };
   return (
-    <Card inverted>
+    <Card basic fluid>
       <Card.Content>
         <Card.Description as="span">{name}</Card.Description>
       </Card.Content>
-      <Card.Content>
-        <Image floated="left" size="tiny" src={avatarURL} />
-        <Card.Header as="h4">Would You Rather...</Card.Header>
+      <Card.Content className="card-inner">
+        <div>
+          <Image floated="left" size="tiny" src={avatarURL} />
+        </div>
+        <div>
+          <Card.Header as="h4">Would You Rather...</Card.Header>
 
-        <Form>
-          <Form.Field>
-            Selected value: <b>{chosenOption}</b>
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label={optionOne.text}
-              name="option"
-              value={optionOne.text}
-              checked={optionOne.text === chosenOption}
-              onChange={handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label={optionTwo.text}
-              name="option"
-              value={optionTwo.text}
-              checked={optionTwo.text === chosenOption}
-              onChange={handleChange}
-            />
-          </Form.Field>
-        </Form>
-        <Button fluid={true} inverted color="green" onClick={handleSubmit}>
-          Submit
-        </Button>
+          <Form onSubmit={(e) => e.preventDefault()}>
+            <Form.Field>
+              Selected value: <b>{chosenOption}</b>
+            </Form.Field>
+            <Form.Field>
+              <Radio
+                label={optionOne.text}
+                name="option"
+                value={optionOne.text}
+                checked={optionOne.text === chosenOption}
+                onChange={handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Radio
+                label={optionTwo.text}
+                name="option"
+                value={optionTwo.text}
+                checked={optionTwo.text === chosenOption}
+                onChange={handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Button
+                fluid={true}
+                inverted
+                color="green"
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+            </Form.Field>
+          </Form>
+        </div>
       </Card.Content>
     </Card>
   );

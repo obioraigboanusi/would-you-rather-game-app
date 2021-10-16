@@ -8,7 +8,7 @@ function Question({ question, user }) {
   const { authur, id, optionOne } = question;
   const { avatarURL } = user;
   return (
-    <Card inverted>
+    <Card fluid>
       <Card.Content>
         <Card.Description as="span">{authur}</Card.Description>
       </Card.Content>

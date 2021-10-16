@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Container, Label, Menu } from "semantic-ui-react";
+import { Label, Menu } from "semantic-ui-react";
 import NavBar from "../components/NavBar";
 import Question from "../components/Question";
 import { Tab } from "semantic-ui-react";
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import { Redirect, useHistory } from "react-router";
 
 function Home({ questions, authedUser }) {
@@ -17,7 +16,6 @@ function Home({ questions, authedUser }) {
     {
       menuItem: {
         key: "Unanswered",
-        // icon: "users",
         content: (
           <Menu.Item key="messages">
             Unanswered Questions<Label>{unanswered.length}</Label>
@@ -72,9 +70,9 @@ function Home({ questions, authedUser }) {
   return (
     <div>
       <NavBar />
-      <Container>
+      <div className="container">
         <Tab panes={panes} renderActiveOnly={false} />
-      </Container>
+      </div>
     </div>
   );
 }

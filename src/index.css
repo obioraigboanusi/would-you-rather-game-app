@@ -54,13 +54,15 @@ form {
   color: white;
 }
 .nav > a:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
-.card {
+.card,
+.leader-card {
   max-width: 500px;
   border: 1px solid lightgray;
 }
-.card img {
+.card img,
+.leader-card img {
   width: 100%;
   border-radius: 50%;
 }
@@ -97,4 +99,96 @@ form {
   width: 92%;
   max-width: 500px;
   margin: auto;
+}
+.leader-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  /* padding: 10px 0; */
+  border-radius: 3px;
+  /* position: relative; */
+}
+
+.leader-card > div:last-of-type {
+  display: grid;
+  padding-left: 10px;
+}
+.leader-card .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+}
+.leader-card .details {
+  padding: 0 10px;
+}
+.leader-card .details > div {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.leader-card .details > div:first-of-type {
+  border-bottom: 1px solid lightlightgray;
+}
+.leader-card .score {
+  display: grid;
+  grid-template-rows: 2fr 3fr;
+  /* border: 1px solid lightgray; */
+  border-radius: 3px;
+  padding: 0;
+}
+.leader-card .score > div:first-of-type {
+  background-color: rgba(241, 241, 241, 0.472);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px 3px 0 0;
+  font-weight: 600;
+  border-bottom: 1px solid lightgray;
+}
+.leader-card .score > div:last-of-type {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 3px 3px;
+}
+.leader-card .score > div span {
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  width: 30px;
+  font-size: 1.5rem;
+  height: 30px;
+  min-width: 50px;
+  min-height: 50px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.leader-card > div:nth-of-type(2) {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+.leader-card > div:nth-of-type(2) {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+.leaders {
+  display: grid;
+  align-items: center;
+}
+.card-inner {
+  display: flex;
+}
+.card-inner > div:last-of-type {
+  /* background-color: red; */
+  flex-grow: 100;
+  border-left: 1px solid lightgray;
+  padding-left: 20px;
+}
+.card-inner > div:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
