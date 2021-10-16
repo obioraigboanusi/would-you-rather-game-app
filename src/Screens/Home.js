@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Dimmer, Label, Loader, Menu, Segment } from "semantic-ui-react";
-import NavBar from "../components/NavBar";
+import { Label, Menu } from "semantic-ui-react";
 import Question from "../components/Question";
 import { Tab } from "semantic-ui-react";
-import { Redirect, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import AppLayout from "../components/AppLayout";
 
-function Home({ questions, authedUser, loading }) {
-  const history = useHistory();
+function Home({ questions }) {
 
   const answered = questions?.filter((item) => item.isAnswered);
   const unanswered = questions?.filter((item) => !item.isAnswered);

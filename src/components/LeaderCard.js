@@ -1,16 +1,15 @@
 import React from "react";
-import { Icon, Image, Label, Progress, Segment } from "semantic-ui-react";
+import {Image, Label, Segment } from "semantic-ui-react";
 
 function LeaderCard({ user, index }) {
   console.log(index);
-  const { id, avatarURL, name, questions, answers } = user;
+  const { avatarURL, name, questions, answers } = user;
   const totalQuestions = questions.length;
   const totalAnswers = Object.keys(answers).length;
   const color = index === 0 ? "green" : index === 1 ? "blue" : "purple";
   return (
     <Segment
       fluid
-      // label={{ as: "button", corner: "left", icon: "heart" }}
       className="leader-card"
     >
       <Label as="a" corner="left" icon="heart" className="label ">

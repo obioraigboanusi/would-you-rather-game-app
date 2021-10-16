@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { batch, connect } from "react-redux";
 import { useHistory } from "react-router";
-import { Container, Dropdown, Item } from "semantic-ui-react";
+import { Container, Dropdown } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 import { setAuthedUser } from "../actions/authedUsers";
 import { setAnsweredQuestions } from "../actions/questions";

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect, useHistory } from "react-router";
-import { Dimmer, Loader, Segment } from "semantic-ui-react";
+import { Dimmer, Loader} from "semantic-ui-react";
 import NavBar from "./NavBar";
 
 function AppLayout({ loading, authedUser, children }) {

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Card, Divider, Image, Label, Progress } from "semantic-ui-react";
+import { Label, Progress } from "semantic-ui-react";
 
 function AnsweredQuestionCard({ question, user }) {
-  const { optionOne, optionTwo, isAnswered } = question;
+  const { optionOne, optionTwo } = question;
   const { avatarURL, name } = user;
   const choice = question.optionOne.votes.includes(user.id)
     ? "optionOne"
