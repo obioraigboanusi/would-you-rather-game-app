@@ -9,19 +9,16 @@ import User from "../Screens/User";
 import NotFound from "../Screens/NotFound";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
-import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
-// import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
-function App({ dispatch, authedUser }) {
+function App({ dispatch }) {
   useEffect(() => {
     dispatch(handleInitialData());
   }, []);
+
   return (
     <BrowserRouter>
       <Switch>
-        {/* <ProtectedRoute authedUser={authedUser}> */}
-          <Route exact path="/" component={Home} />
-        {/* </ProtectedRoute> */}
+        <Route exact path="/" component={Home} />
         <Route exact path="/add" component={Add} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/user" component={User} />

@@ -1,3 +1,8 @@
+html,
+body {
+  display: block;
+  min-height: 100vh;
+}
 .mb-10 {
   margin-bottom: 10px;
 }
@@ -208,4 +213,8 @@ form {
 }
 .user-tag button {
   margin-left: 10px !important;
+}
+
+.pane > a {
+  padding: 0 !important;
 }

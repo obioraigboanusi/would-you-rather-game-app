@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Label, Menu } from "semantic-ui-react";
+import { Dimmer, Label, Loader, Menu, Segment } from "semantic-ui-react";
 import NavBar from "../components/NavBar";
 import Question from "../components/Question";
 import { Tab } from "semantic-ui-react";
 import { Redirect, useHistory } from "react-router";
+import AppLayout from "../components/AppLayout";
 
-function Home({ questions, authedUser }) {
+function Home({ questions, authedUser, loading }) {
   const history = useHistory();
 
   const answered = questions?.filter((item) => item.isAnswered);
@@ -36,7 +37,6 @@ function Home({ questions, authedUser }) {
     {
       menuItem: {
         key: "answered",
-        // icon: "users",
         content: (
           <Menu.Item key="messages">
             Answered Questions<Label>{answered.length}</Label>
@@ -55,25 +55,11 @@ function Home({ questions, authedUser }) {
       },
     },
   ];
-  if (authedUser === null || undefined || "") {
-    return (
-      <Redirect
-        to={{
-          pathname: "/login",
-          state: {
-            from: history.location.pathname,
-          },
-        }}
-      />
-    );
-  }
+
   return (
-    <div>
-      <NavBar />
-      <div className="container">
-        <Tab panes={panes} renderActiveOnly={false} />
-      </div>
-    </div>
+    <AppLayout>
+      <Tab panes={panes} renderActiveOnly={false} className="pane" />
+    </AppLayout>
   );
 }
 function mapStateToProps({ questions, authedUser }) {
