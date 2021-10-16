@@ -1,11 +1,33 @@
-import React from 'react'
+import React from "react";
+import { connect } from "react-redux";
+import LeaderCard from "../components/LeaderCard";
+import NavBar from "../components/NavBar";
 
-function Leaderboard() {
-    return (
-        <div>
-            Leaderboard
-        </div>
-    )
+function Leaderboard({ users }) {
+  console.log(users);
+  const compareFn = (a, b) => {
+    const totalQuestionsA = a.questions.length;
+    const totalAnswersA = Object.keys(a.answers).length;
+    const totalQuestionsB = b.questions.length;
+    const totalAnswersB = Object.keys(b.answers).length;
+    return totalQuestionsB + totalAnswersB - (totalQuestionsA + totalAnswersA);
+  };
+  return (
+    <>
+      <NavBar />
+      <div className="container leaders">
+        {Object.values(users)
+          ?.sort(compareFn)
+          .map((user, index) => (
+            <LeaderCard key={user.id} user={user} index={index} />
+          ))}
+      </div>
+    </>
+  );
 }
-
-export default Leaderboard
+function mapStateToProps({ users }) {
+  return {
+    users,
+  };
+}
+export default connect(mapStateToProps)(Leaderboard);
