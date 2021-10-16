@@ -1,6 +1,7 @@
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const UPDATE_USER_QUESTIONS = "UPDATE_USER_QUESTIONS";
 export const UPDATE_USER_ANSWERS = "UPDATE_USER_ANSWERS";
+export const LOGOUT_USER = "LOGOUT_USER";
 
 export function receiveUsers(users) {
   return {
@@ -21,5 +22,10 @@ export function updateUserAnswers({ qid, authedUser, answer }) {
     qid,
     authedUser,
     answer,
+  };
+}
+export function logoutUser() {
+  return {
+    type: LOGOUT_USER,
   };
 }

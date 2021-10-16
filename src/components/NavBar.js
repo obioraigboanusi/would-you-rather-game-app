@@ -1,27 +1,25 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
+import { connect } from "react-redux";
+import UserTag from "./UserTag";
 
-function NavBar() {
-  const [fixed, setfixed] = useState(true);
+function NavBar({ user }) {
   return (
-    <Menu
-      // fixed={fixed ? "top" : null}
-      inverted
-      pointing={!fixed}
-      secondary={!fixed}
-      size="large"
-    >
-      <div className="container" style={{ maxWidth: "600px" }}>
-        <div className="nav">
+    <div className="nav-cont">
+      <div className="nav">
+        <div className="links">
           <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
           <Link to="/add">Add</Link>
           <Link to="/leaderboard">LeaderBoard</Link>
         </div>
+        {!!user && <UserTag user={user} />}
       </div>
-    </Menu>
+    </div>
   );
 }
-
-export default NavBar;
+function mapStateToProps({ users, authedUser }) {
+  return {
+    user: users[authedUser],
+  };
+}
+export default connect(mapStateToProps)(NavBar);
