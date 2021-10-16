@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { logoutUser } from "../actions/users";
+import { logoutUser } from "../actions/authedUsers";
 
 function UserTag({ user, dispatch }) {
   const logoutHandler = () => {
