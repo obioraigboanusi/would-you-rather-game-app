@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Button, Card, Image } from "semantic-ui-react";
 
-function Question({ question, user }) {
+function Question({ question, users }) {
   const history = useHistory();
   const { author, id, optionOne } = question;
   return (
     <Card fluid>
       <Card.Content>
-        <Card.Description as="span">{author}</Card.Description>
+        <Card.Description as="span">{users[author]?.name}</Card.Description>
       </Card.Content>
       <Card.Content>
-        <Image floated="left" size="tiny" src={user?.avatarURL} />
+        <Image floated="left" size="tiny" src={users[author]?.avatarURL} />
         <Card.Header as="h4">Would You Rather...</Card.Header>
 
         <Card.Meta as="span" className="mt-5 fw-b ">
@@ -41,7 +41,7 @@ function Question({ question, user }) {
 function mapStateToProps({ questions, users, authedUser }) {
   return {
     questions: Object.keys(questions),
-    user: users[authedUser],
+    users,
   };
 }
 
