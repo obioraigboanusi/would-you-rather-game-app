@@ -1,4 +1,5 @@
 import {
+  LOGOUT_USER,
   RECEIVE_USERS,
   UPDATE_USER_ANSWERS,
   UPDATE_USER_QUESTIONS,
@@ -20,7 +21,6 @@ export function users(state = {}, action) {
         },
       };
     case UPDATE_USER_ANSWERS:
-      console.log(action.authedUser)
       return {
         ...state,
         [action.authedUser]: {
@@ -30,6 +30,10 @@ export function users(state = {}, action) {
             [action.qid]: action.answer,
           },
         },
+      };
+    case LOGOUT_USER:
+      return {
+        authedUser: "",
       };
 
     default:

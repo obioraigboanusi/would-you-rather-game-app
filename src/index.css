@@ -37,24 +37,31 @@ form {
 .login .btn {
   margin: 20px auto;
 }
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.nav-cont {
+  box-shadow: 0 1px 3px 0 #02f6f6, 0 0 0 1px #d4d4d5;
+  margin-bottom: 40px;
 }
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 600px;
   margin: auto;
 }
-.nav > a {
-  display: block;
+.nav .links > a {
+  display: inline-block;
   padding: 10px 20px;
-  color: white;
+  color: unset;
 }
-.nav > a:hover {
-  opacity: 0.8;
+.nav .links > a:hover {
+  background-color: rgba(92, 255, 255, 0.205);
+}
+.nav .links > a {
+  border-right: 1px solid lightgray;
+}
+.nav .links > a:first-of-type {
+  border-left: 1px solid lightgray;
 }
 .card,
 .leader-card {
@@ -122,12 +129,12 @@ form {
   padding: 0 10px;
 }
 .leader-card .details > div {
-  padding: 10px 0;
+  padding: 5px 0;
   display: flex;
   justify-content: space-between;
 }
 .leader-card .details > div:first-of-type {
-  border-bottom: 1px solid lightlightgray;
+  border-bottom: 1px solid lightgray;
 }
 .leader-card .score {
   display: grid;
@@ -191,4 +198,14 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.user-tag {
+  display: flex;
+  align-items: center;
+}
+.user-tag span {
+  margin-right: 5px;
+}
+.user-tag button {
+  margin-left: 10px !important;
 }

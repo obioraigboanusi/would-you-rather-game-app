@@ -5,15 +5,14 @@ import { Button, Card, Image } from "semantic-ui-react";
 
 function Question({ question, user }) {
   const history = useHistory();
-  const { authur, id, optionOne } = question;
-  const { avatarURL } = user;
+  const { author, id, optionOne } = question;
   return (
     <Card fluid>
       <Card.Content>
-        <Card.Description as="span">{authur}</Card.Description>
+        <Card.Description as="span">{author}</Card.Description>
       </Card.Content>
       <Card.Content>
-        <Image floated="left" size="tiny" src={avatarURL} />
+        <Image floated="left" size="tiny" src={user?.avatarURL} />
         <Card.Header as="h4">Would You Rather...</Card.Header>
 
         <Card.Meta as="span" className="mt-5 fw-b ">

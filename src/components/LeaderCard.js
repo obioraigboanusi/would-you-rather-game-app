@@ -20,7 +20,7 @@ function LeaderCard({ user, index }) {
         <Image src={avatarURL} />
       </div>
       <div className="details">
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <div>
           <span>Answered Questions</span>
           <span>{totalAnswers || 0}</span>
