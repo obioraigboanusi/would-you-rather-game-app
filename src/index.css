@@ -13,6 +13,9 @@ main,
 .mb-10 {
   margin-bottom: 10px !important;
 }
+.pr-10{
+  padding: 0 20px 0 10px  !important;
+}
 .mt-10 {
   margin-top: 10px !important;
 }
