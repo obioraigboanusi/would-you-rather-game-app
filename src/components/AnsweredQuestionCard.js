@@ -15,9 +15,9 @@ function AnsweredQuestionCard({ question, user }) {
       <Card.Content>
         <Card.Description as="span"> {name}</Card.Description>
       </Card.Content>
-      <Card.Content className="seg">
-        <div>
-          <img src={avatarURL} />
+      <Card.Content className="seg ">
+        <div className="pr-10">
+          <img src={avatarURL} className="ui image" />
         </div>
         <div className="inner">
           <div
