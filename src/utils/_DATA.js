@@ -1,4 +1,4 @@
-import avatar from "./assets/jenny.jpg";
+import avatar from "../assets/jenny.jpg";
 let users = {
   sarahedo: {
     id: "sarahedo",

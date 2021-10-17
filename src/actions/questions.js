@@ -1,4 +1,4 @@
-import { _saveQuestion, _saveQuestionAnswer } from "../_DATA";
+import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const SET_ANSWERED_QUESTIONS = "SET_ANSWERED_QUESTIONS";
@@ -26,7 +26,6 @@ export function answerQuestion({ qid, authedUser, answer }) {
     answer,
   };
 }
-
 
 export function addQuestion(question) {
   return {

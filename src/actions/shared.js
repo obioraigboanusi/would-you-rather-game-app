@@ -4,7 +4,7 @@ import {
   _getUsers,
   _saveQuestion,
   _saveQuestionAnswer,
-} from "../_DATA";
+} from "../utils/_DATA";
 import { hideLoading, showLoading } from "./loading";
 import { addQuestion, receiveQuestions, answerQuestion } from "./questions";
 import { receiveUsers, updateUserAnswers, updateUserQuestions } from "./users";

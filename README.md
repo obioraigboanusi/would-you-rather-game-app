@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Would-You-Rather
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Would-You-Rather is a React and Redux Application that allows a user to play the "Would You Rather?" Game.
 
-## Available Scripts
+## The Project
 
-In the project directory, you can run:
+This app was built with React JavaScript UI Framework, Redux for state management, Semanatic UI and css for styling.
+This project is part of my assessment in the React Developer Nanodegree on [Udacity](https://www.udacity.com). The goal is to solidify my understanding of React and Redux. I now have deeper understanding on improving an application’s state predictability; establishing strict rules for getting, listening, and updating the Redux store; and identifying what state should live inside of Redux and what state should live inside of React components.
 
-### `yarn start`
+## The Game
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules. So, the must choose an option to proceed.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## App Walk-Through
 
-### `yarn test`
+This app enables a user to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Hence, there is a login page for user authentication, home page which hosts both answered questions and unanswered questiions on two different tabs.
 
-### `yarn build`
+On the Unanswered questions tab, a user can choose a question by clicking "View full" button. The user is then taken to details page where he/she can choose an option and submit.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Also, the answered questions tab hosts the answered questions. Selecting each question will take the user to a new page where he/she can see how he/she responded, how others responded, and the winning option.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+With the'add' page the user can create a question and it will be displayed on the home page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The leaderboard page shows how users are performing in the game by rank. The rank is determined by the sum of questions answered and questions created.
 
-### `yarn eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To use this app you must have already have [git](https://git-scm.com/downloads) and [node](https://nodejs.org/en/) intsalled in your machine, if not go ahead install them.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The following steps will guide you to get Would-You-Rather up and running on your computer.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1.  Clone Would-You-Rather Game App
+    Clone Would-You-Rather Game App by running the following command
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+git clone https://github.com/obioraigboanusi/would-you-rather-game-app.git
+```
 
-## Learn More
+2.  Istall Would-You-Rather
+    Switch to new clone app by running
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+cd would-you-rather-game-app
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Then install the app by running
 
-### Code Splitting
+```
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+or
 
-### Analyzing the Bundle Size
+```
+yarn install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3.  Start Would-You-Rather Game App
+    On completed of installation, start the app by running
 
-### Making a Progressive Web App
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+or
 
-### Advanced Configuration
+```
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Wait some seconds while the app starts and opens the home screen.
 
-### Deployment
+Awesome!!!
+You can now enjoy the full functionality of Would-You-Rather Game App.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributors
 
-### `yarn build` fails to minify
+1.  [ Obiora Igboanusi](https://github.com/obioraigboanusi)
+2.  [Udacity](https://www.udacity.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgement
+
+1. [Udacity Team](https://www.udacity.com)
+2. [UI Dev](https://ui.dev/react-router-v4-handling-404-pages/)
