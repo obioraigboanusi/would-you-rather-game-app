@@ -72,45 +72,50 @@ function Add({ dispatch, authedUser }) {
 
   return (
     <AppLayout>
-      <Form onSubmit={handleSubmit}>
-        <p>Complete the questions:</p>
-        <h2>Would you rather....</h2>
-        <Segment basic textAlign="center">
-          <Form.Field>
-            {!!error.optionOne && (
-              <p style={{ color: "red", textAlign: "left" }}>
-                {error.optionOne}
-              </p>
-            )}
-            <input
-              placeholder="Enter option one"
-              value={optionOne}
-              onChange={(e) => setOptionOne(e.target.value)}
-            />
-          </Form.Field>
-          <Divider horizontal>Or</Divider>
-          <Form.Field>
-            {!!error.optionTwo && (
-              <p style={{ color: "red", textAlign: "left" }}>
-                {error.optionTwo}
-              </p>
-            )}
-            <input
-              placeholder="Enter option two"
-              value={optionTwo}
-              onChange={(e) => setOptionTwo(e.target.value)}
-            />
-          </Form.Field>
-          <Button
-            fluid={true}
-            color="green"
-            content="Create New Poll"
-            icon="add"
-            type="submit"
-            labelPosition="left"
-          />
-        </Segment>
-      </Form>
+      <div className="container-card">
+        <div>
+          <h1 style={{ textAlign: "center" }}>Create New Question</h1>
+        </div>
+        <div className="add">
+          <Form onSubmit={handleSubmit}>
+            <p>Complete the questions:</p>
+            <h2>Would you rather....</h2>
+            <Segment basic textAlign="center">
+              <Form.Field>
+                {!!error.optionOne && (
+                  <p style={{ color: "red", textAlign: "left" }}>
+                    {error.optionOne}
+                  </p>
+                )}
+                <input
+                  placeholder="Enter option one"
+                  value={optionOne}
+                  onChange={(e) => setOptionOne(e.target.value)}
+                />
+              </Form.Field>
+              <Divider horizontal>Or</Divider>
+              <Form.Field>
+                {!!error.optionTwo && (
+                  <p style={{ color: "red", textAlign: "left" }}>
+                    {error.optionTwo}
+                  </p>
+                )}
+                <input
+                  placeholder="Enter option two"
+                  value={optionTwo}
+                  onChange={(e) => setOptionTwo(e.target.value)}
+                />
+              </Form.Field>
+              <Button
+                fluid={true}
+                color="green"
+                content="Create New Poll"
+                type="submit"
+              />
+            </Segment>
+          </Form>
+        </div>
+      </div>
     </AppLayout>
   );
 }

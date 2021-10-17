@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect, useHistory } from "react-router";
-import { Dimmer, Loader} from "semantic-ui-react";
+import { Dimmer, Loader } from "semantic-ui-react";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 function AppLayout({ loading, authedUser, children }) {
@@ -26,6 +27,7 @@ function AppLayout({ loading, authedUser, children }) {
           }}
         />
       )}
+      <Footer />
     </div>
   );
 }

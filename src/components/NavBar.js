@@ -9,11 +9,11 @@ const navLinks = [
   },
   {
     url: "/add",
-    text: "Add",
+    text: "New Question",
   },
   {
     url: "/leaderboard",
-    text: "LeaderBoard",
+    text: "Leader Board",
   },
 ];
 function NavBar({ user }) {

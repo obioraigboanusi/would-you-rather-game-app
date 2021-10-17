@@ -5,6 +5,7 @@ import { Container, Dropdown, Image } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 import { setAuthedUser } from "../actions/authedUsers";
 import { setAnsweredQuestions } from "../actions/questions";
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 
 function Login({ users, dispatch }) {
@@ -49,31 +50,38 @@ function Login({ users, dispatch }) {
   return (
     <>
       <NavBar />
-      <Container>
-        <div className="login container">
-          <Image size="tiny" src="/logo192.png" alt="react logo" />
-          <h2 style={{ textAlign: "center" }}>
-            Welcone to "Would You Rather...?" Game!
-          </h2>
-          <h3 style={{ textAlign: "left", alignSelf: "flex-start" }}>
-            Please login to continue
-          </h3>
-          <form onSubmit={handleSubmit}>
-            {!!error && <p style={{ color: "red" }}>{error}</p>}
-            <Dropdown
-              placeholder="Select user"
-              fluid
-              selection
-              closeOnBlur
-              onChange={(e) => setUser(e.target.textContent)}
-              options={userOptions}
-            />
-            <Button inverted color="green" fluid className="btn">
-              Submit
-            </Button>
-          </form>
+      <main>
+        <div className="container-card">
+          <div>
+            <h3 style={{ textAlign: "center" }}>
+              Welcome to "Would You Rather...?" game!
+            </h3>
+            <p style={{ textAlign: "center", alignSelf: "flex-start" }}>
+              Please login to continue
+            </p>
+          </div>
+          <div className="login ">
+            <Image size="tiny" src="/logo192.png" alt="react logo" />
+
+            <form onSubmit={handleSubmit}>
+              <h2>Sign In</h2>
+              {!!error && <p style={{ color: "red" }}>{error}</p>}
+              <Dropdown
+                placeholder="Select user"
+                fluid
+                selection
+                closeOnBlur
+                onChange={(e) => setUser(e.target.textContent)}
+                options={userOptions}
+              />
+              <Button inverted color="green" fluid className="btn">
+                Submit
+              </Button>
+            </form>
+          </div>
         </div>
-      </Container>
+      </main>
+      <Footer />
     </>
   );
 }

@@ -7,7 +7,7 @@ function Question({ question, users }) {
   const history = useHistory();
   const { author, id, optionOne } = question;
   return (
-    <Card basic fluid>
+    <Card basic fluid className="card-max">
       <Card.Content>
         <Card.Description as="span">{users[author]?.name}</Card.Description>
       </Card.Content>

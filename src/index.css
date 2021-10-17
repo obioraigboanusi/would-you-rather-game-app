@@ -1,7 +1,14 @@
 html,
 body {
   display: block;
+  height: auto;
   min-height: 100vh;
+  position: relative;
+}
+main,
+.main {
+  display: block;
+  min-height: calc(100vh - 160px);
 }
 .mb-10 {
   margin-bottom: 10px !important;
@@ -13,37 +20,54 @@ body {
   font-weight: bold !important;
   color: black !important;
 }
+.home {
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  border-radius: 0.28571429rem;
+}
 .questions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  display: grid;
+  grid-gap: 20px;
+  padding: 20px 5px;
 }
 .questions > div {
-  width: 70%;
   min-width: 300px;
   max-width: 500px;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
-.login {
+.home-tabs button {
+  border: 1px solid lightgray !important;
+}
+.home-tabs button > span {
+  margin-left: 5px !important;
+}
+.home-tabs button.active {
+  background-color: rgba(211, 211, 211, 0.133);
+}
+.login,
+.add {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
-  max-width: 300px;
-  margin: auto;
+}
+.login img {
+  margin: 50px 0;
 }
 .login h2 {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   text-align: center !important;
 }
 form {
   display: block;
   width: 100%;
 }
-.login .btn {
+.login .btn,
+.add .btn {
   margin: 20px auto;
+}
+.add form > div {
+  padding: 0 !important;
 }
 .nav-cont {
   box-shadow: 0 1px 3px 0 #02f6f6, 0 0 0 1px #d4d4d5;
@@ -53,9 +77,12 @@ form {
 .nav {
   display: flex;
   align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   max-width: 600px;
   margin: auto;
+  gap: 10px;
 }
 .nav .links > a {
   display: inline-block;
@@ -78,19 +105,40 @@ form {
 .nav .links > a:first-of-type {
   border-left: 1px solid lightgray;
 }
+.container-card {
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  width: 92%;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 3px;
+}
+.container-card > div:first-of-type {
+  padding: 15px;
+  border-bottom: 1px solid lightgray;
+  background: rgba(176, 199, 199, 0.222);
+  border-radius: 3px 3px 0 0;
+}
+.container-card > div:first-of-type h3 {
+  margin-bottom: 5px;
+}
+.container-card > div:last-of-type {
+  padding: 0px 15px 30px;
+  width: 90%;
+  margin: auto;
+}
 .card,
 .leader-card {
   max-width: 500px;
   border: 1px solid lightgray;
 }
+.card-max {
+  max-width: 500px !important;
+  margin: auto !important;
+}
 .card img,
 .leader-card img {
   width: 100%;
   border-radius: 50%;
-}
-.card h2 {
-  padding: 10px 15px;
-  border-bottom: 1px solid lightgray;
 }
 .seg {
   display: grid;
@@ -98,6 +146,9 @@ form {
   padding: 15px;
   grid-gap: 15px;
   align-items: center;
+}
+.seg > div {
+  border-right: 1px solid lightgray;
 }
 .inner {
   /* border-left: 1px solid lightgray; */
@@ -119,7 +170,7 @@ form {
 }
 .container {
   width: 92%;
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
 }
 .leader-card {
@@ -198,10 +249,12 @@ form {
 }
 .leaders {
   display: grid;
+  justify-content: center;
   align-items: center;
 }
 .card-inner {
   display: flex;
+  /* padding-top: 20px !important; */
 }
 .card-inner > div:last-of-type {
   /* background-color: red; */
@@ -217,6 +270,7 @@ form {
 .user-tag {
   display: flex;
   align-items: center;
+  padding: 5px 10px;
 }
 .user-tag span {
   margin-right: 5px;
@@ -227,4 +281,25 @@ form {
 
 .pane > a {
   padding: 0 !important;
+}
+.footer {
+  width: 100%;
+  /* position: absolute; */
+  /* bottom: 0; */
+}
+.footer > div {
+  /* background: rgb(16, 16, 59); */
+  /* color: lightgray; */
+  padding: 20px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0px auto 0;
+}
+.footer a {
+  color: rgb(56, 155, 255);
+  font-weight: bold;
 }

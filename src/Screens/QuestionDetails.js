@@ -7,7 +7,7 @@ import UnAnsweredQuestionCard from "../components/UnAnsweredQuestionCard";
 
 function QuestionDetails({ questions, authedUser }) {
   const history = useHistory();
-  const { id } = history.location.state;
+  const { id } = history?.location?.state || { id: "" };
   const [question] = useState(questions[id] || {});
   const { isAnswered } = question;
 

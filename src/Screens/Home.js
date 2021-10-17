@@ -1,62 +1,45 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Label, Menu } from "semantic-ui-react";
+import { Button, ButtonContent, Label, Menu } from "semantic-ui-react";
 import Question from "../components/Question";
-import { Tab } from "semantic-ui-react";
-import { useHistory } from "react-router";
+
 import AppLayout from "../components/AppLayout";
 
 function Home({ questions }) {
-
+  const [activeTab, setActiveTab] = useState("Unanswered");
   const answered = questions?.filter((item) => item.isAnswered);
   const unanswered = questions?.filter((item) => !item.isAnswered);
 
-  const panes = [
-    {
-      menuItem: {
-        key: "Unanswered",
-        content: (
-          <Menu.Item key="messages">
-            Unanswered Questions<Label>{unanswered.length}</Label>
-          </Menu.Item>
-        ),
-      },
-      pane: {
-        key: "unanswered",
-        content: (
-          <div className="questions">
-            {unanswered.map((item, index) => (
-              <Question key={index} question={item} />
-            ))}
-          </div>
-        ),
-      },
-    },
-    {
-      menuItem: {
-        key: "answered",
-        content: (
-          <Menu.Item key="messages">
-            Answered Questions<Label>{answered.length}</Label>
-          </Menu.Item>
-        ),
-      },
-      pane: {
-        key: "answered",
-        content: (
-          <div className="questions">
-            {answered.map((item, index) => (
-              <Question key={index} question={item} />
-            ))}
-          </div>
-        ),
-      },
-    },
-  ];
-
   return (
     <AppLayout>
-      <Tab panes={panes} renderActiveOnly={false} className="pane" />
+      <div className="home">
+        <Button.Group attached="top" className="home-tabs">
+          <Button
+            basic
+            onClick={() => setActiveTab("Unanswered")}
+            className={activeTab === "Unanswered" ? "active" : ""}
+          >
+            Unanswered Questions<Label as="span">{unanswered.length}</Label>
+          </Button>
+          <Button
+            basic
+            onClick={() => setActiveTab("answered")}
+            className={activeTab === "answered" ? "active" : ""}
+          >
+            Answered Questions<Label as="span">{answered.length}</Label>
+          </Button>
+        </Button.Group>
+        <div className="questions">
+          {activeTab === "Unanswered" &&
+            unanswered.map((item, index) => (
+              <Question key={index} question={item} />
+            ))}
+          {activeTab === "answered" &&
+            answered.map((item, index) => (
+              <Question key={index} question={item} />
+            ))}
+        </div>
+      </div>
     </AppLayout>
   );
 }
