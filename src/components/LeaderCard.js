@@ -1,5 +1,6 @@
 import React from "react";
-import {Image, Label, Segment } from "semantic-ui-react";
+import { Image, Label, Segment } from "semantic-ui-react";
+import PropTypes from "prop-types";
 
 function LeaderCard({ user, index }) {
   const { avatarURL, name, questions, answers } = user;
@@ -7,10 +8,7 @@ function LeaderCard({ user, index }) {
   const totalAnswers = Object.keys(answers).length;
   const color = index === 0 ? "green" : index === 1 ? "blue" : "purple";
   return (
-    <Segment
-      fluid
-      className="leader-card"
-    >
+    <Segment fluid className="leader-card">
       <Label as="a" corner="left" icon="heart" className="label ">
         <i className={`ui heart icon ${color}`}></i>
       </Label>
@@ -39,5 +37,8 @@ function LeaderCard({ user, index }) {
     </Segment>
   );
 }
-
+LeaderCard.propTypes = {
+  user: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+};
 export default LeaderCard;

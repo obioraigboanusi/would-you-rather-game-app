@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Button, ButtonContent, Label, Menu } from "semantic-ui-react";
 import Question from "../components/Question";
-
+import PropTypes from "prop-types";
 import AppLayout from "../components/AppLayout";
 
 function Home({ questions }) {
@@ -43,10 +43,12 @@ function Home({ questions }) {
     </AppLayout>
   );
 }
-function mapStateToProps({ questions, authedUser }) {
+function mapStateToProps({ questions }) {
   return {
     questions: Object.values(questions),
-    authedUser,
   };
 }
+Home.propTypes = {
+  questions: PropTypes.object.isRequired,
+};
 export default connect(mapStateToProps)(Home);

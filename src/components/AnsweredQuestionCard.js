@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Card, Label, Progress } from "semantic-ui-react";
+import PropTypes from "prop-types";
 
 function AnsweredQuestionCard({ question, user }) {
   const { optionOne, optionTwo } = question;
@@ -70,4 +71,8 @@ function mapStateToProps({ authedUser, users }) {
     user: users[authedUser],
   };
 }
+AnsweredQuestionCard.propTypes = {
+  question: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
 export default connect(mapStateToProps)(AnsweredQuestionCard);

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import UserTag from "./UserTag";
+import PropTypes from "prop-types"
 const navLinks = [
   {
     url: "/",
@@ -40,5 +41,8 @@ function mapStateToProps({ users, authedUser }) {
   return {
     user: users[authedUser],
   };
+}
+NavBar.propTypes={
+  users: PropTypes.object.isRequired
 }
 export default connect(mapStateToProps)(NavBar);

@@ -4,6 +4,7 @@ import { Redirect, useHistory } from "react-router";
 import AnsweredQuestionCard from "../components/AnsweredQuestionCard";
 import AppLayout from "../components/AppLayout";
 import UnAnsweredQuestionCard from "../components/UnAnsweredQuestionCard";
+import PropTypes from "prop-types";
 
 function QuestionDetails({ questions, authedUser }) {
   const history = useHistory();
@@ -39,5 +40,8 @@ function mapStateToProps({ questions }) {
     questions,
   };
 }
-
+QuestionDetails.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  questions: PropTypes.object.isRequired,
+};
 export default connect(mapStateToProps)(QuestionDetails);

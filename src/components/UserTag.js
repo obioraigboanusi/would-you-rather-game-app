@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authedUsers";
+import PropTypes from "prop-types";
 
 function UserTag({ user, dispatch }) {
   const logoutHandler = () => {
@@ -20,5 +21,8 @@ function UserTag({ user, dispatch }) {
     </div>
   );
 }
-
+UserTag.propTypes = {
+  user: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 export default connect()(UserTag);

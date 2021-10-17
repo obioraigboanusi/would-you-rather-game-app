@@ -1,8 +1,9 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Button, Card, Form, Image, Radio } from "semantic-ui-react";
 import { handleAnswerQuestion } from "../actions/shared";
+import PropTypes from "prop-types";
 
 function UnAnsweredQuestionCard({ question, user, dispatch }) {
   const history = useHistory();
@@ -28,8 +29,8 @@ function UnAnsweredQuestionCard({ question, user, dispatch }) {
         })
       );
       history.push("/");
-    }else{
-      alert("Please select atleast one option")
+    } else {
+      alert("Please select atleast one option");
     }
   };
   return (
@@ -82,12 +83,16 @@ function UnAnsweredQuestionCard({ question, user, dispatch }) {
     </Card>
   );
 }
-function mapStateToProps({ questions, authedUser, dispatch, users }) {
+function mapStateToProps({ authedUser, dispatch, users }) {
   return {
-    questions,
     user: users[authedUser],
     dispatch,
   };
 }
+UnAnsweredQuestionCard.propTypes = {
+  question: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps)(UnAnsweredQuestionCard);

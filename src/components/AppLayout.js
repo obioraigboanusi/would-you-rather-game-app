@@ -4,6 +4,7 @@ import { Redirect, useHistory } from "react-router";
 import { Dimmer, Loader } from "semantic-ui-react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
+import PropTypes from "prop-types";
 
 function AppLayout({ loading, authedUser, children }) {
   const history = useHistory();
@@ -36,5 +37,10 @@ function mapStateToProps({ loading, authedUser }) {
     loading,
     authedUser,
   };
+}
+AppLayout.propTypes={
+  loading: PropTypes.string.isRequired,
+  authedUser: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired
 }
 export default connect(mapStateToProps)(AppLayout);

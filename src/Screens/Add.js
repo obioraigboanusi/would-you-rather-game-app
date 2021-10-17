@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import { Button, Divider, Form, Segment } from "semantic-ui-react";
 import { handleAddQuestion } from "../actions/shared";
 import AppLayout from "../components/AppLayout";
+import PropTypes from "prop-types";
 
 function Add({ dispatch, authedUser }) {
   const [optionOne, setOptionOne] = useState("");
@@ -125,5 +126,9 @@ function mapStateToProps({ authedUser, dispatch }) {
     dispatch,
   };
 }
+Add.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps)(Add);

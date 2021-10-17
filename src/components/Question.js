@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Button, Card, Image } from "semantic-ui-react";
+import PropTypes from "prop-types";
 
 function Question({ question, users }) {
   const history = useHistory();
@@ -41,11 +42,14 @@ function Question({ question, users }) {
   );
 }
 
-function mapStateToProps({ questions, users, authedUser }) {
+function mapStateToProps({ users }) {
   return {
-    questions: Object.keys(questions),
     users,
   };
 }
+Question.propTypes = {
+  users: PropTypes.object.isRequired,
+  question: PropTypes.object.isRequired,
+};
 
 export default connect(mapStateToProps)(Question);

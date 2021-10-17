@@ -7,6 +7,7 @@ import { setAuthedUser } from "../actions/authedUsers";
 import { setAnsweredQuestions } from "../actions/questions";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
+import PropTypes from "prop-types";
 
 function Login({ users, dispatch }) {
   const history = useHistory();
@@ -85,10 +86,13 @@ function Login({ users, dispatch }) {
     </>
   );
 }
-function mapStateToProps({ users, authedUser }) {
+function mapStateToProps({ users }) {
   return {
     users,
-    authedUser,
   };
 }
+Login.propTypes = {
+  users: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 export default connect(mapStateToProps)(Login);
