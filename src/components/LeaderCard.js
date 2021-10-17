@@ -2,7 +2,6 @@ import React from "react";
 import {Image, Label, Segment } from "semantic-ui-react";
 
 function LeaderCard({ user, index }) {
-  console.log(index);
   const { avatarURL, name, questions, answers } = user;
   const totalQuestions = questions.length;
   const totalAnswers = Object.keys(answers).length;

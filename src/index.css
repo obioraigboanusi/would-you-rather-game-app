@@ -254,10 +254,8 @@ form {
 }
 .card-inner {
   display: flex;
-  /* padding-top: 20px !important; */
 }
 .card-inner > div:last-of-type {
-  /* background-color: red; */
   flex-grow: 100;
   border-left: 1px solid lightgray;
   padding-left: 20px;

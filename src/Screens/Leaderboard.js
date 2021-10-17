@@ -5,7 +5,6 @@ import LeaderCard from "../components/LeaderCard";
 import NavBar from "../components/NavBar";
 
 function Leaderboard({ users }) {
-  console.log(users);
   const compareFn = (a, b) => {
     const totalQuestionsA = a.questions.length;
     const totalAnswersA = Object.keys(a.answers).length;

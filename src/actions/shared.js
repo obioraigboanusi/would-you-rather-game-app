@@ -25,7 +25,6 @@ export function handleAddQuestion(question) {
     dispatch(showLoading());
     return _saveQuestion(question)
       .then((res) => {
-        console.log("res", res);
         batch(() => {
           dispatch(addQuestion(res));
           dispatch(updateUserQuestions(res.id, res.author));
