@@ -9,7 +9,11 @@ function Footer() {
           <p>
             This app was developed with{" "}
             <i className="ui heart icon red large"></i>by{" "}
-            <a href="https://linkedin.com/in/obioraigboanusi" target="_blank">
+            <a
+              href="https://linkedin.com/in/obioraigboanusi"
+              target="_blank"
+              rel="noreferrer"
+            >
               Obiora Igboanusi
             </a>
           </p>

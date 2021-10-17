@@ -17,7 +17,7 @@ function AnsweredQuestionCard({ question, user }) {
       </Card.Content>
       <Card.Content className="seg ">
         <div className="pr-10">
-          <img src={avatarURL} className="ui image" />
+          <img src={avatarURL} className="ui image" alt="user avatar" />
         </div>
         <div className="inner">
           <div
