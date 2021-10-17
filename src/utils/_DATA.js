@@ -1,6 +1,6 @@
 import jenny from "../assets/jenny.jpg";
 import elliot from "../assets/elliot.jpg";
-import molly from "../assets/molly.jpg";
+import molly from "../assets/molly.png";
 let users = {
   sarahedo: {
     id: "sarahedo",
