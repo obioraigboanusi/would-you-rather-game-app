@@ -8,8 +8,8 @@ function LeaderCard({ user, index }) {
   const totalAnswers = Object.keys(answers).length;
   const color = index === 0 ? "green" : index === 1 ? "blue" : "purple";
   return (
-    <Segment fluid className="leader-card">
-      <Label as="a" corner="left" icon="heart" className="label ">
+    <Segment fluid="true" className="leader-card">
+      <Label as="a" corner="left" className="label ">
         <i className={`ui heart icon ${color}`}></i>
       </Label>
       <div className="avatar">

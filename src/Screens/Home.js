@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Button, ButtonContent, Label, Menu } from "semantic-ui-react";
+import { Button, Label } from "semantic-ui-react";
 import Question from "../components/Question";
 import PropTypes from "prop-types";
 import AppLayout from "../components/AppLayout";

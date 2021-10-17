@@ -69,7 +69,7 @@ function UnAnsweredQuestionCard({ question, user, dispatch }) {
             </Form.Field>
             <Form.Field>
               <Button
-                fluid={true}
+                fluid
                 inverted
                 color="green"
                 onClick={handleSubmit}

@@ -21,7 +21,7 @@ function Question({ question, users }) {
 
           <span className="mt-5 fw-b ">{optionOne.text.slice(0, 15)}...</span>
           <Button
-            fluid={true}
+            fluid
             inverted
             color="green"
             onClick={() =>

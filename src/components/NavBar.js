@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import UserTag from "./UserTag";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 const navLinks = [
   {
     url: "/",
@@ -23,9 +23,10 @@ function NavBar({ user }) {
     <div className="nav-cont">
       <div className="nav">
         <div className="links">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <Link
               to={link.url}
+              key={index}
               className={history.location.pathname === link.url ? "active" : ""}
             >
               {link.text}
@@ -42,7 +43,7 @@ function mapStateToProps({ users, authedUser }) {
     user: users[authedUser],
   };
 }
-NavBar.propTypes={
-  users: PropTypes.object.isRequired
-}
+NavBar.propTypes = {
+  user: PropTypes.object.isRequired,
+};
 export default connect(mapStateToProps)(NavBar);

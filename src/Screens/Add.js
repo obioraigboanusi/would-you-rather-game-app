@@ -108,7 +108,7 @@ function Add({ dispatch, authedUser }) {
                 />
               </Form.Field>
               <Button
-                fluid={true}
+                fluid
                 color="green"
                 content="Create New Poll"
                 type="submit"
