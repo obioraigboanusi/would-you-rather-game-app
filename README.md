@@ -9,7 +9,7 @@ This project is part of my assessment in the React Developer Nanodegree on [Udac
 
 ## The Game
 
-The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules. So, the must choose an option to proceed.
+The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules. So, the user must choose an option to proceed.
 
 ## App Walk-Through
 
