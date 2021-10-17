@@ -7,32 +7,35 @@ function Question({ question, users }) {
   const history = useHistory();
   const { author, id, optionOne } = question;
   return (
-    <Card fluid>
+    <Card basic fluid>
       <Card.Content>
         <Card.Description as="span">{users[author]?.name}</Card.Description>
       </Card.Content>
-      <Card.Content>
-        <Image floated="left" size="tiny" src={users[author]?.avatarURL} />
-        <Card.Header as="h4">Would You Rather...</Card.Header>
+      <Card.Content className="card-inner">
+        <div>
+          <Image floated="left" size="tiny" src={users[author]?.avatarURL} />
+        </div>
+        <div>
+          <Card.Header as="h4">Would You Rather...</Card.Header>
 
-        <Card.Meta as="span" className="mt-5 fw-b ">
-          {optionOne.text.slice(0, 15)}...
-        </Card.Meta>
-        <Button
-          fluid={true}
-          inverted
-          color="green"
-          onClick={() =>
-            history.push({
-              pathname: `/questions/${id}`,
-              state: {
-                id,
-              },
-            })
-          }
-        >
-          View Full
-        </Button>
+          <span className="mt-5 fw-b ">{optionOne.text.slice(0, 15)}...</span>
+          <Button
+            fluid={true}
+            inverted
+            color="green"
+            onClick={() =>
+              history.push({
+                pathname: `/questions/${id}`,
+                state: {
+                  id,
+                },
+              })
+            }
+            className="mt-10"
+          >
+            View Full
+          </Button>
+        </div>
       </Card.Content>
     </Card>
   );

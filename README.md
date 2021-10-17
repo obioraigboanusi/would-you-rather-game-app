@@ -1,4 +1,4 @@
-# Would-You-Rather
+# Would-You-Rather Game App
 
 Would-You-Rather is a React and Redux Application that allows a user to play the "Would You Rather?" Game.
 

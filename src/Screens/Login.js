@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { batch, connect } from "react-redux";
 import { useHistory } from "react-router";
-import { Container, Dropdown } from "semantic-ui-react";
+import { Container, Dropdown, Image } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 import { setAuthedUser } from "../actions/authedUsers";
 import { setAnsweredQuestions } from "../actions/questions";
@@ -50,8 +50,14 @@ function Login({ users, dispatch }) {
     <>
       <NavBar />
       <Container>
-        <div className="login">
-          <h1>Login to continue</h1>
+        <div className="login container">
+          <Image size="tiny" src="/logo192.png" alt="react logo" />
+          <h2 style={{ textAlign: "center" }}>
+            Welcone to "Would You Rather...?" Game!
+          </h2>
+          <h3 style={{ textAlign: "left", alignSelf: "flex-start" }}>
+            Please login to continue
+          </h3>
           <form onSubmit={handleSubmit}>
             {!!error && <p style={{ color: "red" }}>{error}</p>}
             <Dropdown
