@@ -7,8 +7,12 @@ import AppLayout from "../components/AppLayout";
 
 function Home({ questions }) {
   const [activeTab, setActiveTab] = useState("Unanswered");
-  const answered = questions?.filter((item) => item.isAnswered);
-  const unanswered = questions?.filter((item) => !item.isAnswered);
+  const answered = questions
+    ?.filter((item) => item.isAnswered)
+    .sort((a, b) => b.timestamp - a.timestamp);
+  const unanswered = questions
+    ?.filter((item) => !item.isAnswered)
+    .sort((a, b) => b.timestamp - a.timestamp);
 
   return (
     <AppLayout>
