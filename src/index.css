@@ -61,7 +61,14 @@ form {
   display: inline-block;
   padding: 10px 20px;
   color: unset;
+  position: relative;
 }
+.nav .links > a.active,
+.nav .links > a.active:hover {
+  background-color: teal;
+  color: white;
+}
+
 .nav .links > a:hover {
   background-color: rgba(92, 255, 255, 0.205);
 }
