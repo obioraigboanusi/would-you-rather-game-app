@@ -22,6 +22,9 @@ function QuestionDetails({ authedUser, match, questions }) {
     );
   }
   const qid = match.params.id;
+  if (!!questions[qid] === false) {
+    return <Redirect to="/not_found" />;
+  }
   const { isAnswered } = questions[qid];
 
   return (
