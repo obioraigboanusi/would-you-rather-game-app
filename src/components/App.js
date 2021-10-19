@@ -27,9 +27,9 @@ function App({ dispatch }) {
     </BrowserRouter>
   );
 }
-function mapStateToProps({ authedUser }) {
-  return {
-    authedUser,
-  };
-}
-export default connect(mapStateToProps)(App);
+// function mapStateToProps({ authedUser }) {
+//   return {
+//     authedUser,
+//   };
+// }
+export default connect()(App);

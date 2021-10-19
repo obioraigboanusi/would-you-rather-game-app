@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Redirect, useHistory } from "react-router";
 import AnsweredQuestionCard from "../components/AnsweredQuestionCard";
@@ -6,11 +6,8 @@ import AppLayout from "../components/AppLayout";
 import UnAnsweredQuestionCard from "../components/UnAnsweredQuestionCard";
 import PropTypes from "prop-types";
 
-function QuestionDetails({ questions, authedUser }) {
+function QuestionDetails({ authedUser, match, users, questions }) {
   const history = useHistory();
-  const { id } = history?.location?.state || { id: "" };
-  const [question] = useState(questions[id] || {});
-  const { isAnswered } = question;
 
   if (authedUser === null || undefined || "") {
     return (
@@ -24,22 +21,27 @@ function QuestionDetails({ questions, authedUser }) {
       />
     );
   }
+  const qid = match.params.id;
+  const {isAnswered} = questions[qid];
 
   return (
     <AppLayout>
       {!isAnswered ? (
-        <UnAnsweredQuestionCard question={question} />
+        <UnAnsweredQuestionCard qid={qid} />
       ) : (
-        <AnsweredQuestionCard question={question} />
+        <AnsweredQuestionCard qid={qid} />
       )}
     </AppLayout>
   );
 }
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, authedUser, users }) {
   return {
     questions,
+    authedUser,
+    users,
   };
 }
+
 QuestionDetails.propTypes = {
   authedUser: PropTypes.string.isRequired,
   questions: PropTypes.object.isRequired,

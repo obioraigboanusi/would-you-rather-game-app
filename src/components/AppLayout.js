@@ -11,9 +11,7 @@ function AppLayout({ loading, authedUser, children }) {
   return (
     <div>
       <NavBar />
-      <Dimmer
-        {...{ active: loading ? true : false }}
-      >
+      <Dimmer {...{ active: loading ? true : false }}>
         <Loader size="massive">Loading...</Loader>
       </Dimmer>
       {!!loading ? null : !!authedUser ? (
@@ -30,7 +28,7 @@ function AppLayout({ loading, authedUser, children }) {
           }}
         />
       )}
-      }
+
       <Footer />
     </div>
   );
@@ -42,8 +40,8 @@ function mapStateToProps({ loading, authedUser }) {
   };
 }
 AppLayout.propTypes = {
-  loading: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
   authedUser: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
 };
 export default connect(mapStateToProps)(AppLayout);

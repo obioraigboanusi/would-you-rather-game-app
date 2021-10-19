@@ -2,14 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { Card, Label, Progress } from "semantic-ui-react";
 import PropTypes from "prop-types";
+import { Redirect } from "react-router";
 
 function AnsweredQuestionCard({ question, user }) {
+
+  if (question === null) {
+    return <Redirect to="/not_found" />;
+  }
+
   const { optionOne, optionTwo } = question;
   const { avatarURL, name } = user;
   const choice = question.optionOne.votes.includes(user.id)
     ? "optionOne"
     : "optionTwo";
   const totalVotes = optionOne.votes.length + optionTwo.votes.length;
+  
   return (
     <Card basic fluid>
       <Card.Content>
@@ -66,9 +73,10 @@ function AnsweredQuestionCard({ question, user }) {
     </Card>
   );
 }
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ authedUser, users, questions }, {qid}) {
   return {
-    user: users[authedUser],
+    user: users[authedUser] || null,
+    question: questions[qid] || null,
   };
 }
 AnsweredQuestionCard.propTypes = {
