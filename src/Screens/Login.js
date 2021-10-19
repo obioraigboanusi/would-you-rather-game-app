@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { batch, connect } from "react-redux";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import { Dropdown, Image } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 import { setAuthedUser } from "../actions/authedUsers";
@@ -9,10 +9,15 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import PropTypes from "prop-types";
 
-function Login({ users, dispatch }) {
+function Login({ users, dispatch, authedUser}) {
   const history = useHistory();
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
+
+  if (authedUser !== null || undefined || "") {
+    return <Redirect to={"/"} />;
+  }
+
   const userOptions = Object.values(users).map((item) => {
     const { id, avatarURL, name } = item;
     return {
@@ -86,13 +91,15 @@ function Login({ users, dispatch }) {
     </>
   );
 }
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
     users,
+    authedUser
   };
 }
 Login.propTypes = {
-  users: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  users: PropTypes.object,
+  dispatch: PropTypes.func,
+  authedUser: PropTypes.string,
 };
 export default connect(mapStateToProps)(Login);

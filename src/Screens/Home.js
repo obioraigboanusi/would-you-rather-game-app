@@ -53,6 +53,6 @@ function mapStateToProps({ questions }) {
   };
 }
 Home.propTypes = {
-  questions: PropTypes.object.isRequired,
+  questions: PropTypes.array.isRequired,
 };
 export default connect(mapStateToProps)(Home);

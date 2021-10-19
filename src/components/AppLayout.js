@@ -40,8 +40,8 @@ function mapStateToProps({ loading, authedUser }) {
   };
 }
 AppLayout.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  authedUser: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  authedUser: PropTypes.string,
   children: PropTypes.element,
 };
 export default connect(mapStateToProps)(AppLayout);

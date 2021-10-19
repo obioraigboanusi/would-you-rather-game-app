@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { Redirect } from "react-router";
 
 function AnsweredQuestionCard({ question, user }) {
-
   if (question === null) {
     return <Redirect to="/not_found" />;
   }
@@ -16,9 +15,9 @@ function AnsweredQuestionCard({ question, user }) {
     ? "optionOne"
     : "optionTwo";
   const totalVotes = optionOne.votes.length + optionTwo.votes.length;
-  
+
   return (
-    <Card basic fluid>
+    <Card fluid>
       <Card.Content>
         <Card.Description as="span"> {name}</Card.Description>
       </Card.Content>
@@ -73,7 +72,7 @@ function AnsweredQuestionCard({ question, user }) {
     </Card>
   );
 }
-function mapStateToProps({ authedUser, users, questions }, {qid}) {
+function mapStateToProps({ authedUser, users, questions }, { qid }) {
   return {
     user: users[authedUser] || null,
     question: questions[qid] || null,
@@ -82,5 +81,6 @@ function mapStateToProps({ authedUser, users, questions }, {qid}) {
 AnsweredQuestionCard.propTypes = {
   question: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
+  qid: PropTypes.string.isRequired,
 };
 export default connect(mapStateToProps)(AnsweredQuestionCard);

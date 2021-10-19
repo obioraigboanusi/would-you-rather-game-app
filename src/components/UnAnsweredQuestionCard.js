@@ -37,7 +37,7 @@ function UnAnsweredQuestionCard({ question, user, dispatch, qid }) {
     }
   };
   return (
-    <Card basic fluid>
+    <Card fluid>
       <Card.Content>
         <Card.Description as="span">{name}</Card.Description>
       </Card.Content>
@@ -89,7 +89,7 @@ function mapStateToProps({ authedUser, dispatch, users, questions }, { qid }) {
   };
 }
 UnAnsweredQuestionCard.propTypes = {
-  questions: PropTypes.object.isRequired,
+  question: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   qid: PropTypes.string.isRequired,

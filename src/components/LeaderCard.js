@@ -38,7 +38,7 @@ function LeaderCard({ user, index }) {
   );
 }
 LeaderCard.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   index: PropTypes.number.isRequired,
 };
 export default LeaderCard;
